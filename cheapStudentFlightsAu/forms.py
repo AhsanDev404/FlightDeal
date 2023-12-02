@@ -1,32 +1,47 @@
 from django import forms
 from .models import SignUp, LogIn, SignUpAd, SignUpMod, Msg, DealInfo, AdReview
-
+ 
 class SignUpForm(forms.ModelForm):
-	class Meta:
-		model = SignUp
-		fields = "__all__"
-	confirm_pw = forms.CharField(max_length=20)
-	notif = forms.ChoiceField(choices=[('Y','Yes'),('N', 'No')])
-	"""	
-	fname = forms.CharField(label = "First Name:", max_length=50)
-	lname = forms.CharField(label = "Last Name:", max_length=50)
-	email = forms.EmailField(label = "Email address:")
-	pw = forms.CharField(label = "Password:", max_length=20)
-	confirm_pw = forms.CharField(label = "Confirm Password:", max_length=20)
-	usi = forms.CharField(label = "USI:", max_length=20)
-	notif =forms.ChoiceField(label = "Opt in for email notifications?", choices=[('Yes'),('No')])
-	address = forms.CharField(widget = forms.Textarea )
-	"""
+    confirm_pw = forms.CharField(max_length=20, required=False)
+    notif = forms.ChoiceField(choices=[('Y', 'Yes'), ('N', 'No')], required=False)
+
+    class Meta:
+        model = SignUp
+        fields = ['fname', 'lname', 'uname', 'email', 'pw', 'confirm_pw']
+
+    def clean(self):
+        cleaned_data = super().clean()
+        pw = cleaned_data.get("pw")
+        confirm_pw = cleaned_data.get("confirm_pw")
+
+        # Only validate confirm_pw if it is provided
+        if confirm_pw and pw != confirm_pw:
+            self.add_error('confirm_pw', "Passwords must match.")
+
+        return cleaned_data
+
 
 class SignUpAdForm(forms.ModelForm):
-	class Meta:
-		model = SignUpAd
-		fields = "__all__"
+    class Meta:
+        model = SignUpAd
+        fields = ['bname', 'abn', 'uname', 'email', 'pw', 'join_date']
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        return cleaned_data
 
 class SignUpModForm(forms.ModelForm):
 	class Meta:
 		model = SignUpMod
-		fields = "__all__"
+		fields = ["fname", "lname", "uname", "email", "pw", "join_date"]
+
+	def clean(self):
+		cleaned_data = super().clean()
+  
+		return cleaned_data
+
+		
 
 class MsgForm(forms.ModelForm):
 	class Meta:
@@ -39,12 +54,13 @@ class MsgForm(forms.ModelForm):
 
 class LogInForm(forms.ModelForm):
 	class Meta:
-		model = LogIn
-		fields = "__all__"
-		"""
-	email = forms.EmailField(label = "Email address:")
-	pw = forms.CharField(label = "Password:", max_length=20)
-	"""
+		model = SignUp
+		fields = ['email', 'pw']
+
+	def clean_password(self):
+		cleaned_data = super().clean()
+		# Add your validation logic here if needed
+		return cleaned_data
 
 class DealInfoForm(forms.ModelForm):
 	class Meta:

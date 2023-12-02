@@ -114,9 +114,8 @@ def signup(request):
 		if form.is_valid():
 			try:
 				form.save()
-				return redirect('/signup_success')
-
-			except:
+				return redirect('/')
+			except Exception as e:
 				pass
 
 	else:
@@ -129,11 +128,10 @@ def signup_ad(request):
 		if form.is_valid():
 			try:
 				form.save()
-				return redirect('/signup_success')
-
-			except:
+				return redirect('/auth/home_ad/')
+			except Exception as e:
+				print(e)
 				pass
-
 	else:
 		form=SignUpAdForm()
 	return render(request,'signup_ad.html', {'form':form})
@@ -144,9 +142,10 @@ def signup_mod(request):
 		if form.is_valid():
 			try:
 				form.save()
-				return redirect('/signup_success')
+				return redirect('/auth/home_mod/')
 
-			except:
+			except Exception as e:
+				print(e)
 				pass
 
 	else:
@@ -160,13 +159,14 @@ def login(request):
         form = LogInForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
+            password = form.cleaned_data['pw']
             try:
-                user = LogIn.objects.get(email=email, pw=password)
+                user = SignUp.objects.get(email=email, pw=password)
                 # Authenticate the user (This is a simple example, for actual authentication use Django's authentication system)
+                print("User is ", user)
                 request.session['user_id'] = user.id
-                return redirect('/home')  # Redirect to home after successful login
-            except LogIn.DoesNotExist:
+                return redirect('/')  # Redirect to home after successful login
+            except SignUp.DoesNotExist:
                 messages.error(request, 'Invalid email or password')
     else:
         form = LogInForm()

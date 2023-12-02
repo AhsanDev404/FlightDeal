@@ -8,9 +8,9 @@ class SignUp(models.Model): # student sign up form fields
 	lname = models.CharField(max_length=30) # last name
 	uname = models.CharField(max_length=30, default="username") # username
 	email = models.EmailField(max_length=30) # email address
-	dob = models.DateField(max_length=10) # date of birth
-	pw = models.CharField(max_length=20)
-	usi = models.CharField(max_length=10) # unique student identifier
+	dob = models.DateField(max_length=10, null=True, blank=True) # date of birth
+	pw = models.CharField(max_length=20, null=True, blank=True)
+	usi = models.CharField(max_length=10, null=True, blank=True) 
 	join_date = models.DateField(max_length=10, default="2023-05-07") # date user signed up
 	def __str__(self):
 		return f"{self.uname}"
