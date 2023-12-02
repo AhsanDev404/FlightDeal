@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Offer Detail</title>
+</head>
+
+<body>
+    <div id="the whole thing" style="height:100%; width:100%; overflow: hidden;">
+        <div id="leftThing" style="float: left; width:25%; ">
+            <img src="https://cdn.britannica.com/34/196734-050-B7C6624F/Beechcraft-Baron-airplane-landing-aircraft-travel.jpg?w=300"
+                alt="Girl in a jacket">
+        </div>
+        <div id="content" style="float: left; width:50%; background-color:gray;">
+            <p>{{ offer.title }} - {{ offer.status}}
+                <a href="{% url 'offers:offer_update' offer.id %}">Update</a> |
+                <a href="{% url 'offers:offer_delete' offer.id %}">Delete</a>
+            </p>
+            <p>
+                {{offer.description}}
+            </p>2024-01-25 06:00
+            <p>
+                {{offer.depart}} - {{offer.arrival}} - {{offer.depart_time}}
+            </p>
+            <p>
+                {{offer.price}}
+            </p>
+            <p>
+                <a href="{% url 'offers:offer_list'%}">Back</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

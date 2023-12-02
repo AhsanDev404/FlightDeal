@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Advertisement Offer List</title>
+    <link rel="stylesheet" href="../../static/CSS/mycss.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+  </head>
+
+
+<body>
+        <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="../../static/javacript/replyinquiry.js"></script>    
+
+    <div class="min-vh-100 d-flex flex-column justify-content-between">
+
+      <!-- Header-->
+      <nav class="container-fluid">
+        <div class="container d-flex justify-content-between flex-wrap">
+          <a class="navbar-brand" href="/">
+            <img src="../../static/images/logo.png" width="233px" alt="" />
+          </a>
+          <div class="d-flex align-items-center">
+            <div class="p-3">CURRENCY: AUD</div>
+            <div class="p-3">LANGUAGE: ENG</div>
+            <div class="p-3">
+              <!-- button outline -->
+              <div class="dropdown">
+                <button
+                  class="profile-dropdown-button d-flex"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img class="me-2" src="../../static/images/profile.png" width="20px" />
+                  JOHN DOE
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item profile-dropdown-item ps-3 p-2"
+                      href="./advertiser_account_info.html"
+                      >ACCOUNT INFO</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item profile-dropdown-item ps-3 p-2"
+                      href="./advertiser_add_ads.html"
+                      >POST ADVERTISMENT</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item profile-dropdown-item ps-3 p-2"
+                      href="#"
+                      >YOUR ADVERTISMENTS</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item profile-dropdown-item ps-3 p-2"
+                      href="./advertiser_sale_team_members.html"
+                      >SALE TEAM MEMBERS</a
+                    >
+                  </li>                  
+                  <li>
+                    <a
+                      class="dropdown-item profile-dropdown-item ps-3 p-2"
+                      href="#"
+                      >SIGN OUT</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- End Header-->
+
+      <!-- Navtab -->
+      <nav class="navbar navbar-expand-lg" style="background-color: #ff3131">
+        <div class="container">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span
+              class="navbar-toggler-icon"
+              style="background-color: #ffffff"
+            ></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <a href="./top_destination.html" style="text-decoration: none;">
+                <li
+                  class="p-3 tab-button d-flex"
+                  style="font-family: 'Poppins', sans-serif"
+                >
+                  <img class="me-3" src="../../static/images/flight_icon.png" />
+                  Flight Offers
+                </li>
+              <a href="/top_destination.html" style="text-decoration: none;">
+                <li
+                  class="p-3 tab-button d-flex"
+                  style="font-family: 'Poppins', sans-serif"
+                >
+                  <img class="me-3" src="../../static/images/flightaccom_icon.png" />Flight +
+                  Accommodations
+                </li>
+              <a href="./top_destination.html" style="text-decoration: none;">
+                <li
+                class="p-3 tab-button d-flex text-nowrap"
+                style="font-family: 'Poppins', sans-serif"
+              >
+                <img class="me-3" src="../../static/images/map_icon.png" />Top Destinations
+                </li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--End Navtab -->
+
+      <!-- Main Body -->
+      <div
+        class="d-flex flex-column justify-content-start align-items-start flex-grow-1"
+      >
+        <!-- Content -->
+        <div class="container p-3 mb-5">
+          <h3 class="h3-style pb-3 pt-5">
+          Offer List
+          </h3>
+          {% for offer in offers %}
+        <!-- <p>{{ forloop.counter }}. {{ offer.title }} - {{ offer.get_status_display }} -->
+        <div class="row py-2 mb-3" id="the whole thing" style="height:100%; width:100%; overflow: hidden;">
+            <div class="col-12 col-lg-6 col-xl-4" id="leftThing" style="float: left; width:25%; ">
+                <img 
+                    src="https://cdn.britannica.com/34/196734-050-B7C6624F/Beechcraft-Baron-airplane-landing-aircraft-travel.jpg?w=300" 
+                    class="img-fluid rounded-start w-100 h-100"
+                    alt="Card image cap"
+                    style="object-fit: cover">
+            </div>
+            <div id="content" style="float: left; width:50%; background-color:gray;">
+                <p>
+                    <a href="{% url 'offers:offer_detail' offer.id %}">{{ offer.title }}</a>
+                    ({{offer.status}})
+                </p>
+                <p>
+                    {{offer.description}}
+                </p>2024-01-25 06:00
+                <p>
+                    {{offer.depart}} - {{offer.arrival}} - {{offer.depart_time}}
+                </p>
+                <p>
+                    {{offer.price}}
+                </p>
+            </div>
+        </div>
+
+        {% endfor %}
+
+        <p> <a href="{% url 'offers:offer_create' %}"> + Add A New Offer</a></p>
+  
+</body>
+
+</html>

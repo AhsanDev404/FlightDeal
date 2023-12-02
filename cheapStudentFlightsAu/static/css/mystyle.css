@@ -1,0 +1,252 @@
+/* style for hyperlinks in webpages */
+a:link {
+	color: white;
+	text-decoration: none;
+}
+a:visited {
+	color: white;
+	text-decoration: none;
+	opacity: 0.6;
+}
+a:hover {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+a:active {
+	color: white;
+	text-decoration: none;
+}
+.banner { /* class banner style */
+	background-color: #2574a9;
+	padding: 20px;	
+	font-weight: bold;
+	font-family: Garamond, serif;
+	font-size: 58px;
+	color: white;
+	text-align: center;
+	text-transform: uppercase; /* transform all text in .banner to uppercase letters */
+}
+div.first {
+	background-color: #2574a9;
+	font-family: Helvetica, sans-serif;
+	text-align: center;
+	color: white;
+}
+div.second {
+	background-color: #000036;
+	font-family: Helvetica, sans-serif;
+}
+div.third {
+	background-color: #add8e6;
+	font-family: Helvetica, sans-serif;
+	color: #000036;
+}
+div.gallery { /* border around gallery images on index.html */
+	border: 1px solid #ccc;
+}
+
+div.gallery:hover { /* when cursor hovers over gallery images on index.html, display a border */
+	border: 3px solid #777;
+	border-color: #fc4445;
+}
+
+div.gallery img { /* images in div.gallery (images of deals on index.html and student homepage home_st.html) scaled down to fit 200 x 150 px */
+	width: 200px;
+	height: 150px;
+	object-fit: cover;
+}
+
+div.desc { /* style for description under gallery images on index.html */
+	padding: 15px;
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+}
+
+* { /* border box on all */
+	box-sizing: border-box;
+}
+
+.responsive { /* to make gallery of "Hot offers" on index.html responsive */
+	padding: 0 6px; /* padding around gallery images of 6px to right*/
+	float: left; /* class responsive will float in center of page */
+	width: 20%; /* each gallery image box occupies 20% of screen width */
+}
+
+@media only screen and (max-width: 700px) { /* media query if screen width < 700px */
+  .responsive {
+    width: 49.99999%; /* image gallery on homepage (index.html, home_st.html) changes gallery image box from 20% (to fit 5 deals side by side) to ~50% (to fit 2 deals side by side) */
+    margin: 6px 0; /* margin of 6 px from top */
+  }
+  .banner {
+  	font-size: 30px; /* reduce banner font size to 30px */
+  }
+  div.second {
+  	font-size: 14px; /* reduce font size to 14 px*/
+  }
+  .table2 { /* reduce font size and width of table2 class */
+  	font-size: 14px;
+  	width: 50%;
+  }
+}
+
+@media only screen and (max-width: 500px) { /* media query if screen width < 500px */
+  .responsive {
+    width: 100%; /* image gallery on homepage changes gallery image box from ~50% (when screen < 700px wide) to 100% so it occupies full width of screen */
+  }
+  .banner {
+  	font-size: 24px; /* reduce banner font size to 24px */
+  }
+  div.second {
+  	font-size: 12px; /* reduce font size to 12px */
+  }
+  .table2 {
+  	font-size: 12px;
+  	width: 100%;
+  }
+}
+
+.clearfix:before, .clearfix:after { /* to stop container with deal images from overlapping with divs */
+	content: "";
+	display: table;
+	clear: both;
+}
+
+
+body {
+	background-color: white;
+}
+nav { /* style for navigation links under the banner on all webpages */
+	background-color: #000036;/* #55bcc9; */
+	color: white;
+	text-align: right;
+	font-family: Helvetica, sans-serif;
+}
+h1 { /* style for heading 1 h1 */
+	color: white;
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+}
+h2 { /* style for heading 2 */
+	color:white;
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+}
+h3 { /* style for heading 3 */
+	font-family: Helvetica, sans-serif;
+}
+
+img {
+	vertical-align: middle; /* vertically align images in slideshow (deal1a.html which is embedded in page deal1.html) in the middle */
+}
+/* place the image container (needed to position the left and right arrows) */
+.container {
+	position: relative;
+}
+
+/* hide the images by default */
+.mySlides {
+	display: none;
+}
+
+/* change cursor to pointer when hovering over the thumbnail images of slideshow */
+.cursor {
+	cursor: pointer;
+}
+
+/* style next and previous buttons on slideshow */
+.prev,
+.next {
+	cursor: pointer; /* change cursor to pointer over the previous and next buttons */
+	position: absolute;
+	top: 40%;
+	width: auto;
+	padding: 16px;
+	margin-top: -50px;
+	color: white; 
+	font-weight: bold;
+	font-size: 50px; /* size of prev and next arrow */
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	-webkit-user-select: none;
+	background-color: rgba(0, 0, 0, 0.8); /* black background with 0.8 alpha */
+}
+
+/* place the next button on slideshow on the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* change button colour to grey when cursor hovers over prev and next buttons */
+.prev:hover,
+.next:hover {
+	color: grey;
+}
+
+/* text for slideshow of pictures (e.g. 1/10, 2/10, etc.) */
+.numbertext {
+	background-color: rgba(0, 0, 0, 0.6); /* background colour set to black with 0.6 alpha, therefore partially transparent */
+	color: #f2f2f2;
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+
+/* container for caption under picture slideshow */
+.caption-container {
+	text-align: center;
+	background-color: black;
+	padding: 2px 16px;
+	color: white;
+	font-family: Helvetica, sans-serif;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* display thumbnails in slideshow in 5 columns side by side */
+.column {
+	float: left;
+	width: 20%;
+}
+
+/* add a transparency effect for thumnbail images */
+.demo {
+	opacity: 0.6;
+}
+
+/* remove transparency for the thumbnail image cursor hovers over */
+.active,
+.demo:hover {
+	opacity: 1;
+}
+
+.table1, th, td { /* style for table to display form fields in */
+	border: 3px; /* table border */
+	padding: 5px 10px; /* padding for table 5px top, 10px right */
+	text-align: right;
+	color: white;
+	font-family: Helvetica, sans-serif;
+}
+
+.table2, th, td { /* style for table to display deal information and user comments on deal webpages */
+	border: 5px solid white; /* table border */
+	border-collapse: collapse;
+	padding: 5px 10px; /* padding for table 5px top, 10px right */
+	text-align: center;
+	color: white;
+	font-family: Helvetica, sans-serif;
+}
+
+footer { /* style for footer element to display author of webpage and last time edited */
+	padding: 10px;
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+}
