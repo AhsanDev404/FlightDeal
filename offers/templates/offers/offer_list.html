@@ -157,30 +157,24 @@
           </h3>
           {% for offer in offers %}
         <!-- <p>{{ forloop.counter }}. {{ offer.title }} - {{ offer.get_status_display }} -->
-        <div class="row py-2 mb-3" id="the whole thing" style="height:100%; width:100%; overflow: hidden;">
-            <div class="col-12 col-lg-6 col-xl-4" id="leftThing" style="float: left; width:25%; ">
-                <img 
-                    src="https://cdn.britannica.com/34/196734-050-B7C6624F/Beechcraft-Baron-airplane-landing-aircraft-travel.jpg?w=300" 
-                    class="img-fluid rounded-start w-100 h-100"
-                    alt="Card image cap"
-                    style="object-fit: cover">
+          <div class="row py-2 mb-3" id="the-whole-thing">
+            <div class="col-12 col-lg-6 col-xl-4" id="left-thing">
+              <img src="https://cdn.britannica.com/34/196734-050-B7C6624F/Beechcraft-Baron-airplane-landing-aircraft-travel.jpg?w=300" class="img-fluid rounded-start w-100 h-100" alt="Card image cap" style="object-fit: cover;">
             </div>
-            <div id="content" style="float: left; width:50%; background-color:gray;">
-                <p>
-                    <a href="{% url 'offers:offer_detail' offer.id %}">{{ offer.title }}</a>
-                    ({{offer.status}})
-                </p>
-                <p>
-                    {{offer.description}}
-                </p>2024-01-25 06:00
-                <p>
-                    {{offer.depart}} - {{offer.arrival}} - {{offer.depart_time}}
-                </p>
-                <p>
-                    {{offer.price}}
-                </p>
+            <div class="col-12 col-lg-6 col-xl-8" id="content" style="background-color: #f8f9fa;">
+              <div class="p-4">
+                <h4>
+                  <a href="{% url 'offers:offer_detail' offer.id %}">{{ offer.title }}</a>
+                  ({{offer.status}})
+                </h4>
+                <p>{{offer.description}}</p>
+                <p>{{offer.depart}} - {{offer.arrival}} - {{offer.depart_time}}</p>
+                <p>{{offer.price}}</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+              </div>
             </div>
-        </div>
+          </div>
+            
 
         {% endfor %}
 
